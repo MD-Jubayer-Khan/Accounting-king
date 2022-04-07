@@ -21,6 +21,7 @@ totalExpenses.innerText = expensesAmount;
 const availableBalance = incomeInputAmount - expensesAmount;
 const balance = document.getElementById('balance');
     balance.innerText = availableBalance;
+
     // clear input field value
     function clearInput(){
           totalExpenses.innerText = 0;
@@ -43,8 +44,9 @@ const balance = document.getElementById('balance');
         clearInput()
     }
     if(isNaN(incomeInputAmount) || isNaN(foodInputAmount) || isNaN(rentInputAmount) || isNaN(clothesInputAmount) ){
-        alert ('Please give a number')
-
+        alert ('Please give a number');
+        clearInput();
+        
     };
 
 // save button event handling
