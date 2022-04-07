@@ -45,8 +45,36 @@ const balance = document.getElementById('balance');
     if(isNaN(incomeInputAmount) || isNaN(foodInputAmount) || isNaN(rentInputAmount) || isNaN(clothesInputAmount) ){
         alert ('Please give a number')
 
+    };
+
+// save button event handling
+document.getElementById('save-button').addEventListener('click', function(){
+    // calculate saving percent
+    const savingsInput = document.getElementById('user-save-input').value;
+    const savingAmount = parseFloat(savingsInput);
+    const savingPercent = savingAmount / 100;
+
+    // show saving amount value
+    const totalSavingAmount = incomeInputAmount * savingPercent;
+    const totalSaving = document.getElementById('saving-amount');
+        totalSaving.innerText = totalSavingAmount;
+
+        // remaining balance
+        const remainingBalance = availableBalance - totalSavingAmount
+        const remainingBalanceInput = document.getElementById('remaining-balance');
+        remainingBalanceInput.innerText = remainingBalance;
+       
+        // saving amount validation
+    if(totalSavingAmount > availableBalance){
+        alert("You dont'd have enough balance for savings")
+        remainingBalanceInput.innerText = 0 ;
+    }
+    else if (remainingBalance < 0){
+        alert ('Add more money')
     }
 
+    })
+
 });
-// save button event handling
+
 
