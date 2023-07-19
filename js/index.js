@@ -68,7 +68,7 @@ document.getElementById('save-button').addEventListener('click', function(){
        
         // saving amount validation
     if(totalSavingAmount > availableBalance){
-        alert("You dont'd have enough balance for savings")
+        alert("You don't have enough balance for savings")
         remainingBalanceInput.innerText = 0 ;
     }
     else if (remainingBalance < 0){
